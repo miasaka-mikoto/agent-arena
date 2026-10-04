@@ -18,15 +18,15 @@ def environment_spec(task: TaskDefinition | Mapping[str, Any]) -> tuple[str, dic
     state = task.initial_state if isinstance(task, TaskDefinition) else dict(task.get("initial_state", {}))
     kind = str(state.get("type", "")).strip().lower().replace("-", "_").replace(" ", "_")
     if kind == "virtual_file_system":
-        return kind, {"files": state.get("files", {}, "directories": state.get("directories", [])}
+        return kind, {"files": state.get("files", {}), "directories": state.get("directories", [])}
     if kind == "virtual_email_inbox":
-        return kind, {"messages": state.get("messages", []}
+        return kind, {"messages": state.get("messages", [])}
     if kind == "virtual_calendar":
         return kind, {"events": state.get("events", [])}
     if kind == "virtual_web_pages":
         return kind, {"pages": state.get("pages", {})}
     if kind == "code_sandbox_mock":
-        return kind, {"files": state.get("files", {}, "tests": state.get("tests", [])}
+        return kind, {"files": state.get("files", {}), "tests": state.get("tests", [])}
     if kind == "simple_grid_world":
         walls = [tuple(cell) for cell in state.get("walls", [])]
         raw_terrain = state.get("terrain", {})
@@ -36,8 +36,8 @@ def environment_spec(task: TaskDefinition | Mapping[str, Any]) -> tuple[str, dic
                 if isinstance(key, str) and "," in key:
                     coords = tuple(int(part.strip()) for part in key.split(",", 1))
                 else:
-                    coords = tuple(map(int, key)) if isinstance(key, (list, tuple) else None
-                 if coords is not None and len(coords] == 2:
+                    coords = tuple(map(int, key)) if isinstance(key, (list, tuple)) else None
+                if coords is not None and len(coords) == 2:
                     terrain[coords] = value
         return kind, {
             "width": int(state.get("width", 1)),
