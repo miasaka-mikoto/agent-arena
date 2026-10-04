@@ -21,3 +21,4 @@ include = ["agent_arena*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+
