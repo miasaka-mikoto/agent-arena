@@ -1,0 +1,20 @@
+{
+  "agent_count": 3,
+  "files": [
+    "README.md",
+    "replay.html",
+    "report.html",
+    "results.json",
+    "results.sqlite",
+    "summary.json",
+    "tasks.json"
+  ],
+  "project": "Agent Arena",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "synthetic": true,
+  "task_count": 50
+}
