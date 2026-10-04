@@ -1,4 +1,4 @@
-""Public agent-provider imports.
+"""Public agent-provider imports.
 
 Implementations live in :mod:`agent_arena.core` so embedding the core remains
 dependency free.  This module is a small discoverable facade for users who
@@ -40,6 +40,3 @@ __all__ = [
     "RuleBasedAgent",
     "ScriptedAgent",
 ]
-"""Public agent-provider imports.
-
-Implementations live in :mod:`agent_arena.core` so embedding the core raims
