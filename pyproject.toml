@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-arena"
+version = "0.1.0"
+description = "Agent Arena / AI Agent 竞技场 - deterministic benchmark environment for agent architectures"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Agent Arena contributors"}]
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+agent-arena = "agent_arena.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["agent_arena*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
